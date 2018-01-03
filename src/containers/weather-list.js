@@ -3,26 +3,39 @@ import {connect} from 'react-redux';
 
  class WeatherList extends Component {
 
-render (){
-return (
-  <table className="table table-hover">
-    <thead>
-      <tr>
-        <th>City</th>
-        <th>Temperature</th>
-        <th>Pressure</th>
-        <th>Humidity</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-);
-}
+   renderWeather(cityData){
+     if (cityData.cod === '404' ){
+       return (alert("Enter valid City Name"));
+     }
+      const name=cityData.city.name;
+      return(
+       <tr key={name}>
+        <td>{name}</td>
+       </tr>
+     );
+   }
+
+  render (){
+    return (
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>City</th>
+            <th>Temperature</th>
+            <th>Pressure</th>
+            <th>Humidity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.weather.map(this.renderWeather)}
+        </tbody>
+      </table>
+    );
+  }
 }
 
-function mapStateToProps({weather}){
-  return {weather}; //{weather}==={weather:weather}
+function mapStateToProps({ weather }){
+  return { weather }; //{weather}==={weather:weather}
 }
 
 export default connect(mapStateToProps)(WeatherList);
