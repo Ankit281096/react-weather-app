@@ -6,8 +6,11 @@ const ROOT_URL =`https://api.openweathermap.org/data/2.5/forecast?appid=${API_KE
 export const FETCH_WEATHER ='FETCH_WEATHER';
 
 export function fetchWeather (city){
-  const url =`${ROOT_URL}&q=${city},in`;
-  const request=axios.get(url);
+  const url =`${ROOT_URL}&q=${city},in&units=metric`;
+  const request=axios.get(url) .catch((err) => {
+      alert('City Not Found');
+      return err;
+    });
 
   return {
     type:FETCH_WEATHER,

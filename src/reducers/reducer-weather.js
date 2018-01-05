@@ -4,7 +4,6 @@ export default function(state=[],action){
 
   switch(action.type){
     case FETCH_WEATHER:
-      //console.log(action.payload.data);
       if(action.payload.data.cod !== '200'){
         return state;
       }
