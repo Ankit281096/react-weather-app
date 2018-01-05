@@ -1,6 +1,6 @@
 const express =require('express');
 const path =require('path');
-const port =process.env.NODE_ENV || 4040;
+const port =process.env.PORT || 4040;
 const app=express();
 
 app.use(express.static(__dirname));
