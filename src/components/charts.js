@@ -10,9 +10,9 @@ export default (props)=>{
   return (
     <div>
       <Sparklines height={120} width={180} data={props.data}>
-        <SparklinesLine style={{ strokeWidth: 3, stroke: "#336aff", fill: "none" }} />
-        <SparklinesSpots size={4}
-        style={{ stroke: "#336aff", strokeWidth: 3, fill: "white" }} />
+        <SparklinesLine style={{ strokeWidth: 2, stroke: "#336aff", fill: "#56b45d"}} />
+        <SparklinesSpots size={3}
+        style={{ stroke: "black", strokeWidth: 3, fill: "white" }} />
         <SparklinesReferenceLine type="avg"/>
       </Sparklines>
       <div>{average(props.data)} {props.units}</div>
